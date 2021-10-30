@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <title>SSTI</title>
+    <style>
+        .form {
+            text-align: center;
+            border: 1px solid green;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        
+        .result {
+            padding: 10px;
+            border: 1px solid green;
+            border-radius: 5px;
+            font-size: 18px;
+            padding-left: 15%;
+            padding-right: 15%;
+        }
+        
+        pre {
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form">
+        <p>Enter something?</p>
+        <form method="post">
+            <input name="text" style="width: 70%; height: 50px; text-align: center;"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div><br>
+    <div class="result">
+        <pre>{{ context }}</pre>
+    </div>
+
+</body>
+
+</html>
