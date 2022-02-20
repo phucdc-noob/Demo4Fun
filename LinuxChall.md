@@ -25,7 +25,7 @@ grep -R '.*' Find_finder/
 
 ![image](https://user-images.githubusercontent.com/82533607/154795120-59d65d20-65d3-45d7-84da-40f54746d48c.png)
 
-Để loại trừ các kết quả chứa link Youtube, ta sử dụng `-v` của `grep` để loại trừ các kết quả có chứa đường link dở hơi kia:
+Ta sử dụng `-v` của `grep` để loại trừ các kết quả có chứa đường link dở hơi kia:
 
 ```bash
 grep -Rv 'https' File_finder/
