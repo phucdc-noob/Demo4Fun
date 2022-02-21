@@ -17,21 +17,40 @@ tr -d [:space:] < there_is_a_base.txt | tr -s '[a-zA-Z0-9]' | base58 -d
 
 ## File finder
 
+### Cách 1:
+
 Thử `grep -R` để tìm tất cả nội dung của các file text bên trong đống thư mục chết tiệt, ta thấy một đống file có nội dung là 1 đường link Youtube nào đó:
 
 ```bash
-grep -R '.*' Find_finder/
+grep -R '.*' File_finder/
 ```
 
 ![image](https://user-images.githubusercontent.com/82533607/154795120-59d65d20-65d3-45d7-84da-40f54746d48c.png)
 
-Ta sử dụng `-v` của `grep` để loại trừ các kết quả có chứa đường link dở hơi kia:
+Để loại trừ các kết quả chứa link Youtube, ta sử dụng `-v` của `grep` để loại trừ các kết quả có chứa đường link dở hơi kia:
 
 ```bash
 grep -Rv 'https' File_finder/
 ```
 
 ![image](https://user-images.githubusercontent.com/82533607/154795230-acad47a2-edbb-427b-ae7f-4a66636d2eda.png)
+
+### Cách 2:
+
+Thử với `ls` với `-lR` để liệt kê tất cả các regular files:
+
+```bash
+ls -lR File_finder
+```
+![image](https://user-images.githubusercontent.com/82533607/154915800-2a9c627e-cfe9-412d-a54c-8ca0a347c6f2.png)
+
+Ta thấy rất nhiều file đều có size là `28`, thử dùng `find` để tìm file nào có size khác với `28` xem sao?
+
+```bash
+find File_finder -type f -size +28c
+```
+
+![image](https://user-images.githubusercontent.com/82533607/154917573-1cff2666-a521-4e9e-a670-461655d68439.png)
 
 ## Crack the 7z
 
